@@ -6,7 +6,11 @@ namespace Ada.Net
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if(args.Length == 0)
+            {
+                //No args, lets just allow it to be
+            }
+            Console.WriteLine(Menu.WriteLogo());
         }
     }
 }
