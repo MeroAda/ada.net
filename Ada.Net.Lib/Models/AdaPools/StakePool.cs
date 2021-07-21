@@ -74,28 +74,28 @@ namespace Ada.Net.Lib.Models.AdaPools
         public string DbUrl { get; set; }
 
         [JsonProperty("total_stake")]
-        public string TotalStake { get; set; }
+        public long TotalStake { get; set; }
 
         [JsonProperty("rewards_epoch")]
         public string RewardsEpoch { get; set; }
 
         [JsonProperty("tax_ratio")]
-        public string TaxRatio { get; set; }
+        public double TaxRatio { get; set; }
 
         [JsonProperty("tax_fix")]
-        public string TaxFix { get; set; }
+        public long TaxFix { get; set; }
 
         [JsonProperty("roa")]
         public string Roa { get; set; }
 
         [JsonProperty("blocks_epoch")]
-        public string BlocksEpoch { get; set; }
+        public long BlocksEpoch { get; set; }
 
         [JsonProperty("bocks_lifetime")]
-        public string BlocksLifetime { get; set; }
+        public long BlocksLifetime { get; set; }
 
         [JsonProperty("blocks_est_lifetime")]
-        public string BlocksEstLifetime { get; set; }
+        public long BlocksEstLifetime { get; set; }
 
         [JsonProperty("stamp_strike")]
         public string StampStrike { get; set; }
@@ -107,7 +107,7 @@ namespace Ada.Net.Lib.Models.AdaPools
         public string HistBpe { get; set; }
 
         [JsonProperty("pledge")]
-        public string Pledge { get; set; }
+        public long Pledge { get; set; }
 
         [JsonProperty("hash_id")]
         public string HashId { get; set; }
