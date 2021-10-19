@@ -164,7 +164,7 @@ namespace Ada.Net.Lib.Models.AdaPools
         public Handles Handles { get; set; }
 
         [JsonProperty("blocks_estimated")]
-        public int BlocksEstimated { get; set; }
+        public double BlocksEstimated { get; set; }
 
         [JsonProperty("stake_x_deleg")]
         public double StakeXDeleg { get; set; }
