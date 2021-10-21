@@ -91,7 +91,7 @@ namespace Ada.Net.Lib.Models.AdaPools
         [JsonProperty("blocks_epoch")]
         public long BlocksEpoch { get; set; }
 
-        [JsonProperty("bocks_lifetime")]
+        [JsonProperty("blocks_lifetime")]
         public long BlocksLifetime { get; set; }
 
         [JsonProperty("blocks_est_lifetime")]
