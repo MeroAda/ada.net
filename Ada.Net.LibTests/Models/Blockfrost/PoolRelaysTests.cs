@@ -15,7 +15,7 @@ namespace Ada.Net.Lib.Models.Blockfrost.Tests
         public async Task GetPoolRelaysTest()
         {
             var apiToken = Environment.GetEnvironmentVariable("BLOCKFROST_API_KEY");
-            var poolId = "72770c5d9dbf120676a6293d921fd7eeee454409620c3fdb671a405a";
+            var poolId = "059b4217a24a8c67a363968ff1db13a17ed96e611362450c115b2415";
 
             PoolRelays pr = new PoolRelays(apiToken);
 

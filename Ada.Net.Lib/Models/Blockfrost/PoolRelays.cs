@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Ada.Net.Lib.Models.Blockfrost
         {}
 
         public string ipv4 { get; set; }
-        public string piv6 { get; set; }
+        public string ipv6 { get; set; }
         public string dns { get; set; }
         public string dns_srv { get; set; }
         public int port { get; set; }
@@ -36,6 +37,29 @@ namespace Ada.Net.Lib.Models.Blockfrost
                     if (res.IsSuccessStatusCode)
                     {
                         var poolRelays = JsonConvert.DeserializeObject<List<PoolRelays>>(await res.Content.ReadAsStringAsync());
+
+                        List<PoolRelays> moreRelays = null;
+                        foreach (var p in poolRelays)
+                        {
+                            if(p.ipv4 == null && p.ipv6 == null && p.dns != null)
+                            {
+                                //try to do a dns lookup
+                                var ips = Dns.GetHostAddresses(p.dns);
+
+                                moreRelays = new List<PoolRelays>();
+                                foreach(var ip in ips)
+                                {
+                                    moreRelays.Add(new PoolRelays(null)
+                                    {
+                                        ipv4 = ip.ToString()
+                                    });
+                                }
+                            }
+                        }
+                        if(moreRelays != null)
+                        {
+                            poolRelays.AddRange(moreRelays);
+                        }
 
                         return poolRelays;
                     }
